@@ -73,13 +73,25 @@ body {
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #fff; }
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #fff;
+    }
 }
 
 
@@ -271,6 +283,7 @@ body {
 .project-item:hover .project-description {
     opacity: 0;
 }
+
 /* Contact Section */
 #contact {
     padding: 4rem 2rem;
@@ -317,6 +330,51 @@ body {
 #contact .social-icons a:hover {
     color: #f39c12;
 }
+
+/* Your existing styles */
+/* Add the new styles for the resume section */
+#resume {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#resume h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.pdf-images {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pdf-images img {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#resume a {
+    color: #fff;
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+#resume a:hover {
+    background-color: #555;
+}
+
 
 /* Footer */
 footer {
