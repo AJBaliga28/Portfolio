@@ -4,15 +4,94 @@
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
+  font-size: 16px;
   font-family: "Roboto", sans-serif;
   color: #fff;
   background-color: black;
+  display: flex;
+  flex-direction: column;
   /* background: url('shadow.jpg') no-repeat center center/cover fixed; */
 }
 
-body {
-  display: flex;
-  flex-direction: column;
+/* Tablet and larger screens */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+    width: 90%;
+  }
+
+  .loading {
+    font-size: 1.1rem; /* Slightly smaller than desktop but larger than mobile */
+    text-align: center; /* Center align the loading text */
+    line-height: 1.5rem; /* Ensure good spacing between lines */
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem; /* Reduce gap for better fit on tablets */
+  }
+
+  .project-item {
+    width: 100%; /* Ensure project items take full width on smaller screens */
+    padding: 0.5rem; /* Adjust padding */
+  }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-title {
+    font-size: 1.2em;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Only one column on mobile */
+    gap: 1rem; /* Smaller gap for mobile */
+  }
+
+  .project-item {
+    padding: 0.5rem; /* Reduce padding */
+    border: 1px solid #444; /* Slightly lighter border for better contrast */
+  }
+
+  .project-item img {
+    width: 100%; /* Ensure the image takes full width */
+  }
+
+  .project-description h3 {
+    font-size: 1.2rem; /* Smaller font for titles on mobile */
+  }
+
+  .project-description p {
+    font-size: 1rem; /* Adjust description text size */
+  }
+
+  .project-links {
+    bottom: 5px; /* Move links slightly up */
+  }
+
+  .project-links a {
+    font-size: 1rem; /* Adjust button text size */
+    padding: 0.7rem 1rem; /* Adjust padding */
+  }
 }
 
 .landing {
@@ -63,12 +142,20 @@ body {
   }
 }
 
+.loading-container {
+  display: flex; /* Create a flex container */
+  flex-wrap: wrap; /* Allow text to wrap to the next line */
+}
+
 .loading {
   font-size: 1.2rem;
   white-space: nowrap;
   overflow: hidden;
+  text-align: center;
   border-right: 0.15em solid #fff;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  max-width: 100%;
+  margin: 0.9rem;
 }
 
 @keyframes typing {
@@ -90,36 +177,6 @@ body {
   50% {
     border-color: #fff;
   }
-}
-
-.navbar {
-  position: fixed;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  padding: 1rem 0;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  /* border-bottom: 2px solid #ddd; */
-}
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.navbar ul li {
-  margin: 0 1rem;
-}
-
-.navbar ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
 }
 
 .section {
@@ -158,6 +215,81 @@ body {
     background-color: #ddd;
     margin: 2rem 0;
 } */
+
+/* General Navbar Styles */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 1rem 0;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 1rem;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* Menu Icon for Mobile */
+.menu-icon {
+  display: none; /* Hidden by default on larger screens */
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem; /* Position it to the right */
+  z-index: 20; /* Ensure the icon stays on top of the nav */
+}
+
+/* On mobile screens (max-width 600px), hide the links and show the menu icon */
+@media (max-width: 600px) {
+  .menu-icon {
+    display: block; /* Show the menu icon on smaller screens */
+  }
+
+  /* Hide the nav links by default */
+  .nav-list.active {
+    display: none;
+  }
+
+  /* Show the links when the menu is toggled */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Slightly darker background */
+    position: absolute;
+    top: 60px; /* Position the menu below the navbar */
+    left: 0;
+    z-index: 15; /* Ensure it's below the menu icon */
+  }
+
+  .nav-list li {
+    margin: 15px 0; /* More space between the links on mobile */
+  }
+
+  .nav-list li a {
+    font-size: 1.5rem; /* Larger and more readable */
+  }
+}
 
 #skills .skill {
   width: 80%;
